@@ -330,4 +330,5 @@ window.mainloop()
 [19_9-scale-number1-100.py](https://github.com/user-attachments/files/22078602/19_9-scale-number1-100.py)
 ```python
 
+
 ```
