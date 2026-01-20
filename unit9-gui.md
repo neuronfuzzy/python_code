@@ -33,6 +33,20 @@ graph TD;
 อย่าลืมทำตามลำดับนะครับ! :star:
 <img width="981" height="331" alt="Image" src="https://github.com/user-attachments/assets/0dd55feb-bf9f-4b2c-a875-782f63ebcfa5" />
 
+```mermaid
+flowchart TD
+    A[เริ่มต้นสร้าง Player] --> B[กำหนดค่า health = 100]
+    B --> C[is_alive = True]
+    C --> D[เรียกใช้ take_damage(damage)]
+    D --> E[health = health - damage]
+    E --> F{health <= 0 ?}
+
+    F -- ใช่ --> G[is_alive = False]
+    G --> H[แสดงข้อความ: ถูกกำจัดแล้ว]
+
+    F -- ไม่ใช่ --> I[แสดงข้อความ: เหลือพลังชีวิต]
+```
+
 [19_2-swap-button.py]
 ```python
 import tkinter
@@ -328,5 +342,6 @@ window.mainloop()
 
 [19_9-scale-number1-100.py](https://github.com/user-attachments/files/22078602/19_9-scale-number1-100.py)
 ```python
+
 
 ```
