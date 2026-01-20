@@ -56,6 +56,19 @@ B --> C{Decision}
 C -->|One| D[Result 1]
 C -->|Two| E[Result 2]
 ```
+```mermaid
+flowchart TD
+    A[เริ่มต้นสร้าง Player] --> B[กำหนดค่า health = 100]
+    B --> C[is_alive = True]
+    C --> D[เรียกใช้ take_damage(damage)]
+    D --> E[health = health - damage]
+    E --> F{health <= 0 ?}
+
+    F -- ใช่ --> G[is_alive = False]
+    G --> H[แสดงข้อความ: ถูกกำจัดแล้ว]
+
+    F -- ไม่ใช่ --> I[แสดงข้อความ: เหลือพลังชีวิต]
+```
 [ex5-if-oop2.py]()
 
 ```python
@@ -330,5 +343,6 @@ window.mainloop()
 
 
 ```
+
 
 
