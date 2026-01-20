@@ -83,17 +83,42 @@ flowchart TD
         "type": "Polygon",
         "coordinates": [
           [
-              [16.853702647102097, 100.33947551433106],
-              [16.8094250551496, 100.2550338461827],
-              [16.891412724392858, 100.24633551433107],
-              [16.864472914893327, 100.19552375234298],
-              [16.697950324840676, 100.18320531433106]
+              [-90,35],
+              [-90,30],
+              [-85,30],
+              [-85,35],
+              [-90,35]
           ]
         ]
       }
     }
-  ]
 }
+```
+```mermaid
+flowchart TD
+    A[เริ่มต้น] --> B(รับข้อมูล);
+    B --> C{ข้อมูลถูกต้อง?};
+    C -->|ใช่| D[แสดงผลลัพธ์];
+    C -->|ไม่| E[แจ้งเตือนข้อผิดพลาด];
+    D --> F[สิ้นสุด];
+    E --> F;
+st=>start: Start:>http://www.google.com[blank]
+e=>end:>http://www.google.com
+op1=>operation: My Operation
+sub1=>subroutine: My Subroutine
+cond=>condition: Yes
+or No?:>http://www.google.com
+io=>inputoutput: catch something...
+para=>parallel: parallel tasks
+in=>input: some in
+out=>output: some out
+
+st->op1->cond
+cond(yes)->io->e
+cond(no)->para
+para(path1, bottom)->sub1(right)->op1
+para(path2, top)->op1
+para(path3, right)->in->out->e
 ```
 [ex5-if-oop2.py]()
 
@@ -369,6 +394,7 @@ window.mainloop()
 
 
 ```
+
 
 
 
