@@ -49,77 +49,15 @@ graph TD;
 ```
 อย่าลืมทำตามลำดับนะครับ! :star:
 
-```mermaid
-flowchart LR
-A[Hard] -->|Text| B(Round)
-B --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-```mermaid
 flowchart TD
-    A[เริ่มต้นสร้าง Player] --> B[กำหนดค่า health = 100]
-    B --> C[is_alive = True]
-    C --> D[เรียกใช้ take_damage(damage)]
-    D --> E[health = health - damage]
-    E --> F{health <= 0 ?}
-
-    F -- ใช่ --> G[is_alive = False]
-    G --> H[แสดงข้อความ: ถูกกำจัดแล้ว]
-
-    F -- ไม่ใช่ --> I[แสดงข้อความ: เหลือพลังชีวิต]
-```
-```geojson
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "id": 1,
-      "properties": {
-        "ID": 0
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-              [-90,35],
-              [-90,30],
-              [-85,30],
-              [-85,35],
-              [-90,35]
-          ]
-        ]
-      }
-    }
-}
-```
-```mermaid
-flowchart TD
-    A[เริ่มต้น] --> B(รับข้อมูล);
-    B --> C{ข้อมูลถูกต้อง?};
-    C -->|ใช่| D[แสดงผลลัพธ์];
-    C -->|ไม่| E[แจ้งเตือนข้อผิดพลาด];
+    A[เริ่มต้น] --> B(ประมวลผลข้อมูล);
+    B --> C{ตรวจสอบเงื่อนไข};
+    C -- ใช่ --> D[แสดงผลลัพธ์ 1];
+    C -- ไม่ --> E[แสดงผลลัพธ์ 2];
     D --> F[สิ้นสุด];
     E --> F;
-st=>start: Start:>http://www.google.com[blank]
-e=>end:>http://www.google.com
-op1=>operation: My Operation
-sub1=>subroutine: My Subroutine
-cond=>condition: Yes
-or No?:>http://www.google.com
-io=>inputoutput: catch something...
-para=>parallel: parallel tasks
-in=>input: some in
-out=>output: some out
 
-st->op1->cond
-cond(yes)->io->e
-cond(no)->para
-para(path1, bottom)->sub1(right)->op1
-para(path2, top)->op1
-para(path3, right)->in->out->e
-```
+
 [ex5-if-oop2.py]()
 
 ```python
@@ -222,39 +160,36 @@ is_alive = สถานะว่ายังมีชีวิตอยู่ห
 
 ### Flowchart (Mermaid)
 
+
+```mermaid
+[เริ่มฟังก์ชัน]
+      |
+      v
+[ลดพลังชีวิต: health = health - damage]
+      |
+      v
+{ พลังชีวิต <= 0 ? }
+      |         |
+ [ใช่]          [ไม่ใช่]
+  |             |
+  v             v
+[is_alive=False] [แสดงเลือดที่เหลือ]
+  |             |
+  v             |
+[แจ้งเตือนว่าตาย] <---'
+      |
+      v
+   [จบ]
+```
 ```mermaid
 flowchart TD
-    A[เริ่มต้นสร้าง Player] --> B[กำหนดค่า health = 100]
-    B --> C[is_alive = True]
-    C --> D[เรียกใช้ take_damage(damage)]
-    D --> E[health = health - damage]
-    E --> F{health <= 0 ?}
-
-    F -- ใช่ --> G[is_alive = False]
-    G --> H[แสดงข้อความ: ถูกกำจัดแล้ว]
-
-    F -- ไม่ใช่ --> I[แสดงข้อความ: เหลือพลังชีวิต]
+    A["สร้างอ็อบเจ็คท์ Player"] --> B["เรียกใช้ take_damage(damage)"]
+    B --> C{"health หลังจากถูก damage<br/>น้อยกว่าหรือเท่ากับ 0?"}
+    C -- ไม่ใช่ --> D["แสดงข้อความ<br/>เหลือพลังชีวิต ..."]
+    C -- ใช่ --> E["เปลี่ยน is_alive เป็น False"]
+    E --> F["แสดงข้อความ<br/>ถูกกำจัดแล้ว!"]
 ```
-
 <img width="494" height="413" alt="Image" src="" />
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>รายละเอียดประวัติ</title>
-</head>
-<body>
- <a href="https://flowchart.js.org/"  target="blank">See Profile</a>
-
-</body>
-</html>
-```
 
 [19_6-textbox-mutipleline.py](https://github.com/user-attachments/files/22078591/19_6-textbox-mutipleline.py)
 
@@ -410,12 +345,46 @@ window.mainloop()
 [19_9-scale-number1-100.py](https://github.com/user-attachments/files/22078602/19_9-scale-number1-100.py)
 ```python
 
-
+```
+```geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+              [-90,35],
+              [-90,30],
+              [-85,30],
+              [-85,35],
+              [-90,35]
+          ]
+        ]
+      }
+    }
+}
+```
+```mermaid
+sequenceDiagram
+    actor Alice
+    actor Bob
+    Alice->>Bob: Hi Bob
+    Bob->>Alice: Hi Alice
 ```
 
-
-
-
-
-
-
+```mermaid
+flowchart TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+ (บล็อกโค้ด)
