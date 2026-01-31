@@ -408,5 +408,3 @@ flowchart TD
     C -->|Three| F[fa:fa-car Car]
 ```
  (บล็อกโค้ด)
-```
- (บล็อกโค้ด)
