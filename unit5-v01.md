@@ -46,6 +46,37 @@ flowchart TD
     B-->D;
     C-->D;
 ```
+Use Case PM2.5 form Perplexity
+```mermaid
+graph LR
+    User[ผู้ใช้] --> ViewCurrentPM2.5[ดู PM2.5 ปัจจุบัน]
+    User --> ViewHistory[ดูประวัติ]
+    User --> SetAlert[ตั้งค่าแจ้งเตือน]
+    User --> ManageProfile[จัดการโปรไฟล์]
+    Admin[ผู้ดูแล] --> ManageData[จัดการข้อมูล]
+
+```
+Sequence Diagram PM2.5 form Perplexity
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant App as Mobile App
+    participant Backend as Python Backend
+    participant API as PM2.5 API
+    participant DB as MongoDB
+
+    U->>App: เปิดแอป/รีเฟรช
+    App->>Backend: GET /pm25?lat,lng
+    Backend->>API: Request PM2.5 data
+    API-->>Backend: Return {pm25, aqi, ...}
+    Backend->>DB: Save/Update data
+    DB-->>Backend: OK
+    Backend-->>App: JSON response
+    App-->>U: แสดงข้อมูล/แผนที่
+
+
+```
+
 อย่าลืมทำตามลำดับนะครับ! :star:
 
 ```mermaid
