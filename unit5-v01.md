@@ -166,9 +166,6 @@ flowchart TD
 [out_EX05-04-if-else-v1.jpg]
 <img width="402" height="328" alt="Image" src="./out_05-04-if-else-v1.jpg" />
 
-<img width="402" height="328" alt="Image" src="./" />
-[19_5-buttonAdd_textbox.py](https://github.com/user-attachments/files/22078603/19_5-buttonAdd_textbox.py)
-
 # ตัวอย่างโค้ด Python: Class Player
 
 โค้ดตัวอย่างนี้แสดงการสร้างคลาส Player และการทำงานของฟังก์ชัน take_damage
@@ -240,9 +237,7 @@ flowchart TD
     C -- ใช่ --> E["เปลี่ยน is_alive เป็น False"]
     E --> F["แสดงข้อความ<br/>ถูกกำจัดแล้ว!"]
 ```
-<img width="494" height="413" alt="Image" src="" />
-
-[19_6-textbox-mutipleline.py](https://github.com/user-attachments/files/22078591/19_6-textbox-mutipleline.py)
+<img width="494" height="413" alt="Image" src="" ./>
 
 ```python
 import tkinter
@@ -438,4 +433,5 @@ flowchart TD
     C -->|Two| E[iPhone]
     C -->|Three| F[fa:fa-car Car]
 ```
+
  (บล็อกโค้ด)
