@@ -23,3 +23,8 @@ r = int(input("ใส่ค่ารัศมี : "))
 print("ค่ารัศมี ",r)
 area1 = pi*(np.exp(r))
 print("พื้นที่สามเหลี่ยมเท่ากับ >> " , area1)
+
+output [out_ex02-02_func.jpg ]
+| ลำดับที่ | ตำแหน่ง | ลิงก์ file |
+| ---- | ---- | ---- |
+|1| Github code unit2 | https://github.com/neuronfuzzy/python_code/blob/code_unit2/out_ex2-02_func.jpg |
